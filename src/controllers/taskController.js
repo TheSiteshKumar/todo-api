@@ -14,14 +14,15 @@ export const getTasks = async (req, res) => {
 // @desc Create task
 export const createTask = async (req, res) => {
   try {
-    const { title, description, dueDate, completed, category } = req.body;
+    const { title, description, dueDate, completed, category, priority } = req.body;
 
     const newTask = await Task.create({
       title,
       description,
       dueDate,
       completed,
-      category
+      category,
+      priority 
     });
 
     // populate category before sending back
